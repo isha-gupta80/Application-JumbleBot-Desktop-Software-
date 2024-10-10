@@ -1,8 +1,7 @@
- a. StringVar  =  is a tkinter variable class which holds a string value.
-    It can be used to manage the value of a tkinter widget, such as a Label or Entry.
+                                      SUMMARY
+This code effectively sets up a word jumble game where users can guess the correct word from a jumbled version. The GUI is simple, and it provides feedback based on the user's input.
 
-
-  b. Here’s a line-by-line explanation of the code:
+  A. Here’s a line-by-line explanation of the code:
 
 
      1. import tkinter
@@ -26,6 +25,83 @@
     7.  window.geometry("300x300")
     --> This sets the dimensions of the window to 300 pixels wide and 300 pixels tall.
 
-    8.  window.mainloop()
-    -->  This starts the Tkinter event loop, which waits for events (like button clicks or key presses) and keeps the application running until it is closed.
+    8. questions = []
+      for i in answer:
+      words = list(i)
+      shuffle(words)
+      questions.append(words)
+   
+   --> a. An empty list questions is created.
+       
+       b. The code iterates through each country in answer, converts each country into a list of its characters (words), shuffles(rearrange (a pack of cards) by sliding them over each other quickly.) the characters randomly, and appends the shuffled list to questions.
+   
+   9. num = random.randint(0, len(questions) - 1)
+   -->  A random index (num) is chosen to select one of the jumbled words from questions.
     
+   10. def initial():
+       global questions, num
+       lb1.configure(text=questions[num])
+   --> This function updates the label lb1 with the jumbled word corresponding to the randomly selected index.
+
+   11.  def answercheck():
+            global questions, num, answer
+            userinput = e1.get()
+            if userinput == answer[num]:
+             messagebox.showinfo('success', 'your answer was correct')
+            else:
+             messagebox.showinfo('Error', 'your answer is wrong')
+             e1.delete(0, END)
+   -->
+       a. This function retrieves the user input from the entry box (e1).
+
+       b. It checks if the user’s answer matches the correct answer from the answer list. If correct, it shows a success message; if wrong, it shows an error message and clears the entry box.
+
+   
+   12. def resetswitch():
+           global questions, answers, num
+           num = random.randint(0, len(questions) - 1)
+           lb1.configure(text=questions[num])
+           e1.delete(0, END)
+   -->This function generates a new random question and updates the label with the new jumbled word while clearing the previous input.
+
+ 
+   13. window = Tk()
+       window.geometry("300x300")
+       window.configure(background='#30336B')
+       window.title("JumbleBot")
+       window.iconbitmap('icon.ico')
+   -->A Tkinter window is created, with specified dimensions, background color, title, and an icon.
+
+   14. lb1 = Label(window, font='times 20', bg='#586776', fg='#EA7773')
+       lb1.pack(pady=30, ipady=10, ipadx=10)
+
+       answers = StringVar()
+       e1 = Entry(window, textvariable=answer)
+       e1.pack(ipady=5, ipadx=5)
+
+       button1 = Button(window, text="check", bg='#586776', width=20, command=answercheck)
+       button1.pack(pady=40)
+
+       button2 = Button(window, text="Reset", bg='#586776', width=20, command=resetswitch)
+       button2.pack()
+   -->
+      a. A label (lb1) is created to display the jumbled word.
+
+      b. An entry field (e1) is created for user input.
+
+      c. Two buttons are created: one to check the answer and another to reset the game.
+
+   15. initial() 
+       window.mainloop()
+   -->
+      a. The initial function is called to display the first jumbled word.
+
+      b. window.mainloop() starts the Tkinter event loop, allowing the application to run and respond to user actions.
+
+
+B. StringVar  =  is a tkinter variable class which holds a string value.
+    It can be used to manage the value of a tkinter widget, such as a Label or Entry.
+
+
+
+         
