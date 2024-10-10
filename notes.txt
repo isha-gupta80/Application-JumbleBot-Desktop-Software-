@@ -1,2 +1,31 @@
- 1. StringVar  =  is a tkinter variable class which holds a string value.
+ a. StringVar  =  is a tkinter variable class which holds a string value.
     It can be used to manage the value of a tkinter widget, such as a Label or Entry.
+
+
+  b. Here’s a line-by-line explanation of the code:
+
+
+     1. import tkinter
+     --> This line imports the tkinter module, which is used to create graphical user interfaces (GUIs) in Python.
+
+     2. from tkinter import *
+     --> This imports all classes and functions from the tkinter module directly, allowing you to use them without prefixing them with tkinter.
+
+     3. from tkinter import messagebox
+     --> This imports the messagebox module specifically, which provides functions to create pop-up message boxes for alerts and notifications.
+
+     4. import random
+     --> This imports the random module, which provides functions for generating random numbers and performing random operations.
+
+     5. from random import shuffle
+    --> This imports the shuffle function from the random module, which can randomly reorder a list.
+
+    6.  window = Tk()
+    --> This creates a new instance of the Tk class, which initializes the main application window.
+
+    7.  window.geometry("300x300")
+    --> This sets the dimensions of the window to 300 pixels wide and 300 pixels tall.
+
+    8.  window.mainloop()
+    -->  This starts the Tkinter event loop, which waits for events (like button clicks or key presses) and keeps the application running until it is closed.
+    
