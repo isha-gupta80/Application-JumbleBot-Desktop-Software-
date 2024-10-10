@@ -1,0 +1,2 @@
+ 1. StringVar  =  is a tkinter variable class which holds a string value.
+    It can be used to manage the value of a tkinter widget, such as a Label or Entry.
